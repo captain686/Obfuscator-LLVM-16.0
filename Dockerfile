@@ -20,7 +20,8 @@ RUN apt update -y &&\
         pkg-config \
         libstdc++6 \
         libssl-dev \
-        musl
+        musl \
+        musl-tools
 
 # get source code for rust-llvm, rust compiler and hikari OLLVM
 WORKDIR /repos
@@ -84,7 +85,8 @@ RUN apt update -y &&\
         pkg-config \
         libstdc++6 \
         libssl-dev \
-        musl
+        musl \
+        musl-tools
 
 COPY --from=builder-llvm /repos/llvm-16.0-2023-03-06/build/llvm_x64 /repos/llvm-16.0-2023-03-06/build
 
