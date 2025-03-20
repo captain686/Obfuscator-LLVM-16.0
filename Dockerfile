@@ -103,10 +103,10 @@ RUN cp config.example.toml config.toml &&\
     sed -i 's/#channel = "dev"/channel = "nightly"/' config.toml &&\
     sed -i 's/#llvm-config = <none> (path)/llvm-config = "\/repos\/llvm-16.0-2023-03-06\/build\/bin\/llvm-config"/' config.toml &&\
     sed -i 's/#llvm-filecheck = "\/path\/to\/llvm-version\/bin\/FileCheck"/llvm-filecheck = "\/repos\/llvm-16.0-2023-03-06\/build\/bin\/FileCheck"/' config.toml &&\
-    sed -i 's/#target = build.host (list of triples)/target = ["x86_64-unknown-linux-musl", "x86_64-pc-windows--musl"]/' config.toml
+    sed -i 's/#target = build.host (list of triples)/target = ["x86_64-unknown-linux-musl", "x86_64-pc-windows-gnu"]/' config.toml
 
 # build rust compiler
-RUN python3 x.py build --target x86_64-unknown-linux-musl,x86_64-pc-windows--musl
+RUN python3 x.py build --target x86_64-unknown-linux-musl,x86_64-pc-windows-gnu
 
 # build cargo
 #RUN python3 x.py build tools/cargo
